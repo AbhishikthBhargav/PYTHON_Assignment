@@ -1,0 +1,31 @@
+Question 2: Question 2: You won’t get caught if you hide behind someone.” Sang-Woo 
+advises Gi-Hun to hide behind someone to avoid getting shot. Gi-Hun follows 
+Sang-Woo's advice and hides behind Ali, who saved his life earlier. Gi-Hun 
+and Ali both have the same height, K . Many players saw this trick and also 
+started hiding behind Ali. Now, there are N players standing between Gi-Hun 
+and Ali in a straight line, with the ith player having height Hi . Gi-Hun 
+wants to know the minimum number of players who need to get shot so that 
+Ali is visible in his line of sight.
+
+Solution: 
+
+def min_players_to_shot(T, test_cases):
+ results = []
+ for N, K, heights in test_cases:
+ max_height = K
+ players_to_shot = 0
+ for height in heights:
+ if height > max_height:
+ players_to_shot += 1
+ max_height = height
+ results.append(players_to_shot)
+ return results
+T = int(input())
+test_cases = []
+for _ in range(T):
+ N, K = map(int, input().split())
+ heights = list(map(int, input().split()))
+ test_cases.append((N, K, heights))
+results = min_players_to_shot(T, test_cases)
+for result in results:
+ print(result)
