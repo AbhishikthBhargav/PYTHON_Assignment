@@ -1,0 +1,18 @@
+Question 1: Python code for converting integer values to Indian currency 
+notations, without using the currency libraries.
+
+Solution:
+
+def indian_currency_notation(n):
+ n = str(n)
+ result = ""
+ count = 0
+ for i in range(len(n) - 1, -1, -1):
+ if count == 3:
+ result = "," + result
+ count = 0
+ result = n[i] + result
+ count += 1
+ return result
+print(indian_currency_notation(504678))
+
